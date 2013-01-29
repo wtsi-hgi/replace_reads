@@ -14,9 +14,9 @@ public:
     }
     bool init() {
         // Open files
-        file_iter = sam_open(file_name.c_str(), "r", 0);
-        replace_iter = sam_open(replace_name.c_str(), "r", 0);
-        out_file = sam_open(out_name.c_str(), "w", 0);
+        file_iter = sam_open(file_name.c_str(), "rb", 0);
+        replace_iter = sam_open(replace_name.c_str(), "rb", 0);
+        out_file = sam_open(out_name.c_str(), "wb", 0);
         
         if (file_iter == NULL || replace_iter == NULL || out_file == NULL) {
             return false;
