@@ -14,7 +14,7 @@ AC_PROG_CC_C99
 
 # Checks for libraries.
 AC_CHECK_LIB([hts], [hts_open])
-if test "$ac_cl_lib_hts" == no
+if test "$ac_cv_lib_hts_hts_open" == no
 then
 	AC_MSG_WARN([No htslib found])
 fi
