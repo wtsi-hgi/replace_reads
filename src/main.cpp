@@ -36,7 +36,7 @@ public:
         bam1_t* replace_read = bam_init1();
         bam1_t* to_write = NULL;
         
-        if (sam_read1(replace_iter, replace_header, replace_read) > 0 ) {
+        if (sam_read1(replace_iter, replace_header, replace_read) < 0 ) {
             throw "erk";
         }
         
@@ -47,7 +47,7 @@ public:
                 // Match so write replacement
                 sam_write1(out_file, file_header, replace_read);
                 // Cue up next
-                if ( sam_read1(replace_iter, file_header, replace_read) > 0 ) {
+                if ( sam_read1(replace_iter, file_header, replace_read) < 0 ) {
                     // No more reads to replace
                     bam_destroy1(replace_read);
                     replace_read = NULL;
